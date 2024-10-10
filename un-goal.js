@@ -16,16 +16,10 @@ class UNGoal extends LitElement {
     this.size = '254px';
   }
 
-  updated(changedProperties) {
-    if (changedProperties.has('goal')) {
-      this.requestUpdate();
-    }
-  }
-
   render() {
     const goalName = `Goal ${this.goal}: ${this.getGoalName(this.goal)}`;
     const altText = this.label || goalName;
-    const goalSvg = new URL(`./lib/svgs/goal-${this.goal}.svg`, import.meta.url).href;
+    const goalSvg = `./un-sdg/lib/svgs/goal-${this.goal}.svg`; // Adjusted path to your SVGs
     const color = this.getGoalColor(this.goal);
     
     return html`
@@ -44,6 +38,7 @@ class UNGoal extends LitElement {
         <div class="color-square"></div>
       ` : html`
         <img class="goal" src="${goalSvg}" alt="${altText}" loading="lazy" fetchpriority="low">
+        <p>${goalName}</p> <!-- Fallback text in case image does not load -->
       `}
     `;
   }
