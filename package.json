@@ -1,0 +1,19 @@
+{
+    "name": "un-sdg-component",
+    "version": "1.0.0",
+    "description": "Web component to showcase UN Sustainable Development Goals (SDGs)",
+    "main": "un-goal.js",
+    "type": "module",
+    "scripts": {
+      "start": "http-server ."
+    },
+    "dependencies": {
+      "lit": "^2.0.0"
+    },
+    "devDependencies": {
+      "http-server": "^0.12.3"
+    },
+    "author": "Your Name",
+    "license": "MIT"
+  }
+  

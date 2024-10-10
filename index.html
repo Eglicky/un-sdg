@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>UN SDG Goals Demo</title>
+  <script type="module" src="./un-goal.js"></script>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+    }
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 10px;
+      margin: 20px auto;
+      max-width: 800px;
+    }
+    button {
+      padding: 10px 20px;
+      background-color: #007bff;
+      color: white;
+      border: none;
+      cursor: pointer;
+    }
+    button:hover {
+      background-color: #0056b3;
+    }
+  </style>
+</head>
+<body>
+  <h1>Sustainable Development Goals</h1>
+  <div class="grid">
+    <un-goal goal="1"></un-goal>
+    <un-goal goal="2"></un-goal>
+    <un-goal goal="3"></un-goal>
+    <un-goal goal="4"></un-goal>
+    <un-goal goal="5"></un-goal>
+    <un-goal goal="6"></un-goal>
+    <un-goal goal="7"></un-goal>
+    <un-goal goal="8"></un-goal>
+    <un-goal goal="9"></un-goal>
+    <un-goal goal="10"></un-goal>
+    <un-goal goal="11"></un-goal>
+    <un-goal goal="12"></un-goal>
+    <un-goal goal="13"></un-goal>
+    <un-goal goal="14"></un-goal>
+    <un-goal goal="15"></un-goal>
+    <un-goal goal="16"></un-goal>
+    <un-goal goal="17"></un-goal>
+  </div>
+  <button onclick="randomizeGoal()">Change Random Goal</button>
+
+  <script>
+    function randomizeGoal() {
+      const randomGoal = Math.floor(Math.random() * 17) + 1;
+      document.querySelector('un-goal').goal = randomGoal.toString();
+    }
+  </script>
+</body>
+</html>
