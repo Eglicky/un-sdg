@@ -1,15 +1,20 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  <!-- Sets characters for the page -->
   <meta charset="UTF-8">
+  <!-- scaling on mobile -->
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>UN SDG Goals Demo</title>
+  <!-- Imports the un-goal module -->
   <script type="module" src="./un-goal.js"></script>
   <style>
+    /*Sets default font and aligns the text */
     body {
       font-family: Arial, sans-serif;
       text-align: center;
     }
+    /* grid layout with proper spacing*/
     .grid {
       display: grid;
       grid-template-columns: repeat(4, 1fr);
@@ -17,6 +22,7 @@
       margin: 20px auto;
       max-width: 800px;
     }
+    /* button style */
     button {
       padding: 10px 20px;
       background-color: #007bff;
@@ -30,7 +36,9 @@
   </style>
 </head>
 <body>
-  <h1>Sustainable Development Goals</h1>
+  <!-- title of page -->
+  <h1>Sustainable Goals</h1>
+  <!-- Grid of custom elements for un-goal-->
   <div class="grid">
     <un-goal goal="1"></un-goal>
     <un-goal goal="2"></un-goal>
@@ -50,13 +58,19 @@
     <un-goal goal="16"></un-goal>
     <un-goal goal="17"></un-goal>
   </div>
+  <!-- Button to have random goal-->
   <button onclick="randomizeGoal()">Change Random Goal</button>
 
   <script>
+    //function to randomize displayed goal
     function randomizeGoal() {
+      //selects all the un-goal elements
       const goals = document.querySelectorAll('un-goal');
+      // picks random index for the number of goals
       const randomIndex = Math.floor(Math.random() * goals.length);
+      //random goal from 1 - 17
       const randomGoal = Math.floor(Math.random() * 17) + 1;
+      //sets goal of randomly selected goal
       goals[randomIndex].goal = randomGoal.toString();
     }
   </script>

@@ -1,13 +1,14 @@
 import { LitElement, html, css } from 'lit';
 
 class UNGoal extends LitElement {
+  //Properties for the element
   static properties = {
     goal: { type: String },
     label: { type: String },
     colorOnly: { type: Boolean },
     size: { type: String }
   };
-
+// default values for all diff properties
   constructor() {
     super();
     this.goal = '1';
@@ -15,7 +16,7 @@ class UNGoal extends LitElement {
     this.colorOnly = false;
     this.size = '254px';
   }
-
+// Shows the HTML and CSS based on the set properties
   render() {
     const goalName = `Goal ${this.goal}: ${this.getGoalName(this.goal)}`;
     const altText = this.label || goalName;
@@ -35,14 +36,16 @@ class UNGoal extends LitElement {
         }
       </style>
       ${this.colorOnly ? html`
+      <!-- If colorOnly is true it will display the color-->
         <div class="color-square"></div>
       ` : html`
+      <!-- this is supposed to show the element when it works-->
         <img class="goal" src="${goalSvg}" alt="${altText}" loading="lazy" fetchpriority="low">
-        <p>${goalName}</p> <!-- Fallback text in case image does not load -->
+        <p>${goalName}</p> 
       `}
     `;
   }
-
+// shows the color and puts it with the goal name
   getGoalName(goal) {
     const names = {
       '1': 'No Poverty',
@@ -89,5 +92,5 @@ class UNGoal extends LitElement {
     return colors[goal] || '#000';
   }
 }
-
+//shows un-goal element
 customElements.define('un-goal', UNGoal);
